@@ -44,14 +44,18 @@ def main():
 
         print('\nOptions:')
         print('0. Exit')
-        print('1. Create parameters.')
-        print('2. Create votes')
-        print('3. Compute vote-shares')
-        print('4. Generate tallies')
-        print('5. Compute election results')
+        print('1. Set election parameters.')
+        print('2. Create votes.')
+        print('3. Compute vote-shares.')
+        print('4. Generate tallies.')
+        print('5. Compute election results.')
         userInput = input('\n')
 
         if userInput == '0':
+            print('Thank you for using the MPC voting demo.')
+            print('Made by Ian McClean.')
+            print('https://github.com/ianmcclean/')
+            print('Link to the project: https://github.com/ianmcclean/MPC-Voting')
             return
         elif userInput == '1':
             createParameters()
@@ -82,6 +86,7 @@ def main():
 def generateVotes():
     file = open('votes.txt', 'w')
 
+    print(f'Select a candidate within the range 0-{numCandidates-1}.')
     for i in range(numVoters):
         vote = input(f'Vote {i + 1}: ')
         if int(vote) < 0 or int(vote) >= numCandidates:
@@ -106,6 +111,8 @@ def createParameters():
 
     parameters.close()
 
+    print('Parameters created and written to file params.txt')
+
 
 def computeVoteShares():
     global voterOutputs
@@ -119,6 +126,8 @@ def computeVoteShares():
     voterOutputsFile = open('voterOutputs.txt', 'w')
     voterOutputsFile.write(json.dumps(voterOutputs))
     voterOutputsFile.close()
+
+    print('Vote-shares created and written to file voterOutputs.txt')
 
 
 def generateTallies():
@@ -138,6 +147,8 @@ def generateTallies():
     tallierOutputsFile = open('tallierOutputs.txt', 'w')
     tallierOutputsFile.write(json.dumps(tallierOutputs))
     tallierOutputsFile.close()
+
+    print('Tallies generated and written to file tallierOutputs.txt')
 
 
 def computeElectionResults():
