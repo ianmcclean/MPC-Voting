@@ -1,7 +1,7 @@
 import random
 from math import floor
 
-from ModularMath import evaluatePolynomial, nextPrime
+from ModularMath import evaluatePolynomial
 
 sysRandom = random.SystemRandom()
 

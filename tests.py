@@ -1,6 +1,6 @@
 import unittest
 
-import SuperTallier
+import ResultsComputer
 import Tallier
 import Voter
 from ModularMath import evaluatePolynomial, nextPrime, reconstructConstant
@@ -100,7 +100,7 @@ class IntegrationTest(unittest.TestCase):
                 (numTallier, tallierOutputs[numTallier]) for numTallier in range(numTalliers)
             ]
 
-            totalVotes = SuperTallier.getTotalVotes(superTallierInputs, numCandidates, numTalliers, p)
+            totalVotes = ResultsComputer.getTotalVotes(superTallierInputs, numCandidates, numTalliers, p)
 
             # find actual sum:
             actualVoteTotals = [

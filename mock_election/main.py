@@ -1,7 +1,7 @@
-import os.path
 import json
+import os.path
 
-import SuperTallier
+import ResultsComputer
 import Tallier
 import Voter
 from ModularMath import nextPrime
@@ -147,7 +147,7 @@ def computeElectionResults():
 
     p = nextPrime(numVoters)
 
-    totalVotes = SuperTallier.getTotalVotes(superTallierInputs, numCandidates, numTalliers, p)
+    totalVotes = ResultsComputer.getTotalVotes(superTallierInputs, numCandidates, numTalliers, p)
     print(f'Election Results: {totalVotes}')
 
 

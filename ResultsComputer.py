@@ -1,7 +1,7 @@
 import random
 from math import floor
 
-from ModularMath import reconstructConstant, nextPrime
+from ModularMath import reconstructConstant
 
 
 def getTotalVotes(tallyVectorPairs, numCandidates, numTalliers, p):
