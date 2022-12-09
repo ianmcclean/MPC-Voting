@@ -1,28 +1,28 @@
 # Reconstructs the constant of a polynomial using the computationally efficient method outlined in:
 # https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing#Reconstruction
-def reconstructConstant(pairs, polynomialDegree, p):
-    if len(pairs) != polynomialDegree + 1:
+def reconstructConstant(pairsOfPoints, polynomialDegree, p):
+    if len(pairsOfPoints) != polynomialDegree + 1:
         raise ValueError("Degree must be one less than number of input/output pairs")
 
-    sum = 0
-    for j in range(len(pairs)):
-        yj = pairs[j][1]
+    total = 0
+    for j in range(len(pairsOfPoints)):
+        yj = pairsOfPoints[j][1]
 
         prod = 1
-        for m in range(len(pairs)):
+        for m in range(len(pairsOfPoints)):
             if m == j:
                 continue
 
-            xm = pairs[m][0]
-            xj = pairs[j][0]
+            xm = pairsOfPoints[m][0]
+            xj = pairsOfPoints[j][0]
 
             # Add p to the diff, since python does not correctly compute the modulus of negative numbers
             diff = xm - xj + p
             prod *= (xm * pow(diff, -1, p)) % p
 
-        sum += (yj * prod) % p
+        total += (yj * prod) % p
 
-    return sum % p
+    return total % p
 
 
 def evaluatePolynomial(coefficients, x, p):
