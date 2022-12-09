@@ -65,7 +65,7 @@ class IntegrationTest(unittest.TestCase):
             numCandidates = 10
             numTalliers = 8
 
-            voteFile = open("testVotes.txt", 'r')
+            voteFile = open("tests/testVotes.txt", 'r')
             votes = [
                 int(line.strip()) for line in voteFile
             ]
